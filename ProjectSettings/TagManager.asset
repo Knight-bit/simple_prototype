@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Primer Plano
+  - Name
+  - Canvas Display
+  - Button Name
   layers:
   - Default
   - TransparentFX
