@@ -4,16 +4,44 @@ using UnityEngine;
 
 public class Cow : Animal
 {
-    private AudioSource audio;
-    public override void Sound()
+    private AudioSource _audio;
+    
+    public static Cow Instance;
+    public int Code
     {
-        audio.Play(0);
+        get
+        {
+            return code;
+        }
+        set { }
+    }
+    private int code = 3;
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     
+    public override void Sound()
+    {
+        _audio.Play(0);
+    }
+    public void OnMouseDown()
+    {
+        _audio.enabled = true;
+        MainManager.Instance.ChangeCamera(gameObject.transform.position, Name, "Mugir", _audio, Code);
+    }
     // Start is called before the first frame update
     void Start()
     {
-        audio = gameObject.GetComponent<AudioSource>();
+        _audio = gameObject.GetComponent<AudioSource>();
+        _audio.enabled = false;
         Size = 1;
         Name = "Cow";
     }

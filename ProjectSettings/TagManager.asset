@@ -8,6 +8,9 @@ TagManager:
   - Name
   - Canvas Display
   - Button Name
+  - Selected
+  - MainScene
+  - Cat
   layers:
   - Default
   - TransparentFX

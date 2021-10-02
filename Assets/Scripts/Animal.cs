@@ -7,26 +7,26 @@ public abstract class Animal : MonoBehaviour
     // Start is called before the first frame update
     public abstract void Sound();
     private float limit_size = 0.5f;
+    protected float size = 1;
+    protected string _name;
     public float Size
     {
         get { return size; }
         set
         {
-            if (value <= limit_size) size = size;
-            else size = value * size;
+            if (value < limit_size) size = limit_size;
+            else size = value;
         }
     }
-    protected float size;
-
     public string Name
     {
-        get { return name; }
+        get { return _name; }
         set
         {
-            if (value == "") name = name;
-            else name = value;
+            if (value != "") _name = value;
+
         }
     }
-    protected string name;
+    
 
 }
