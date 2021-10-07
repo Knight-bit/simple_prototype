@@ -45,10 +45,6 @@ public class Cow : Animal
         Size = 1;
         Name = "Cow";
     }
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

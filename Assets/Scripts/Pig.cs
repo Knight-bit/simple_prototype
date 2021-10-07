@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cat : Animal
+public class Pig : Animal
 {
     private AudioSource _audio;
+
+    public static Pig Instance;
     public int Code
     {
-        get 
+        get
         {
-            return code; 
+            return code;
         }
-        set { } 
+        set { }
     }
     private int code = 2;
-    public static Cat Instance;
+
     private void Awake()
     {
         if (Instance != null)
@@ -26,7 +28,7 @@ public class Cat : Animal
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    
+
     public override void Sound()
     {
         _audio.Play(0);
@@ -34,16 +36,14 @@ public class Cat : Animal
     public void OnMouseDown()
     {
         _audio.enabled = true;
-        MainManager.Instance.ChangeCamera(gameObject.transform.position, Name, "Meow", _audio, Code);
+        MainManager.Instance.ChangeCamera(gameObject.transform.position, Name, "Oink", _audio, Code);
     }
     // Start is called before the first frame update
     void Start()
     {
         _audio = gameObject.GetComponent<AudioSource>();
         _audio.enabled = false;
-        Name = "Cat";
-        Size = 1;
+        Size = 2;
+        Name = "Pig";
     }
-
-    
 }

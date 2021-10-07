@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Frog : Animal
+public class Chicken : Animal
 {
     private AudioSource _audio;
-    
-    public static Frog Instance;
     public int Code
     {
         get
@@ -17,7 +14,8 @@ public class Frog : Animal
         set { }
     }
     private int code = 1;
-
+    public static Chicken Instance;
+    public bool is_on = false;
     private void Awake()
     {
         if (Instance != null)
@@ -29,28 +27,27 @@ public class Frog : Animal
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    
+
     public override void Sound()
     {
         _audio.Play(0);
     }
     public void OnMouseDown()
     {
-        _audio.enabled = true;
-        MainManager.Instance.ChangeCamera(gameObject.transform.position, Name, "Bonk", _audio, Code);
+        if(!is_on)
+        {
+            _audio.enabled = true;
+            MainManager.Instance.ChangeCamera(gameObject.transform.position, Name, "Cacareo", _audio, Code);
+        }
+        
     }
     // Start is called before the first frame update
     void Start()
     {
         _audio = gameObject.GetComponent<AudioSource>();
         _audio.enabled = false;
-        Size = 2;
-        Name = "Frog";
+        Name = "Chicken";
+        Size = 1;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

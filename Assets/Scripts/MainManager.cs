@@ -14,7 +14,7 @@ public class MainManager : MonoBehaviour
     public static MainManager Instance;
     private AudioSource audio_reference;
     private int code = 0;
-    enum Animals {DogRe , FrogRe, CatRe, CowRe};
+    enum Animals {DogRe , ChickenRe, PigRe, CowRe};
     private void Awake()
     {
         if (Instance != null)
@@ -84,17 +84,19 @@ public class MainManager : MonoBehaviour
         switch(code)
         {
             case ((int)Animals.DogRe):
+                
                 Dog.Instance.Size = slider.value * 1;
                 Dog.Instance.gameObject.transform.localScale = (vector * Dog.Instance.Size);
                 break;
-            case ((int)Animals.FrogRe):
-                Frog.Instance.Size = slider.value * 1;
-                Frog.Instance.gameObject.transform.localScale = (vector * Frog.Instance.Size);
+            case ((int)Animals.ChickenRe):
+                
+                Chicken.Instance.Size = slider.value * 1;
+                Chicken.Instance.gameObject.transform.localScale = (vector * Chicken.Instance.Size);
                 //Frog.Instance.gameObject.transform.localScale *= (slider.value / 2);
                 break;
-            case ((int)Animals.CatRe):
-                Cat.Instance.Size = slider.value * 1;
-                Cat.Instance.gameObject.transform.localScale = (vector * Cat.Instance.Size);
+            case ((int)Animals.PigRe):
+                Pig.Instance.Size = slider.value * 1;
+                Pig.Instance.gameObject.transform.localScale = (vector * Pig.Instance.Size);
                 //Cat.Instance.gameObject.transform.localScale *= (slider.value / 2);
                 break;
             case ((int)Animals.CowRe):
